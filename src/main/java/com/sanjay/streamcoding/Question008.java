@@ -1,8 +1,6 @@
 package com.sanjay.streamcoding;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
+
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -11,9 +9,12 @@ import java.util.stream.Stream;
  */
 public class Question008 {
     public static void main(String[] args) {
-        String input="Java is great";
+        String input="";
         Optional<String> s= Stream.of(input.split(""))
                 .reduce((a,b)->b+a);
-        System.out.println(s);
+        if (s.isPresent() && (!s.get().isEmpty()))
+            System.out.println(s.get());
+        else
+            System.out.println("String is empty");
     }
 }
